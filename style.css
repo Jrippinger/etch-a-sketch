@@ -8,6 +8,7 @@
     height: 400px;
     display: flex;
     flex-direction: column;
+    border: 2px solid black;
 }
 
 .subContainer{
@@ -18,9 +19,7 @@
 
 .box{
     width: 100px;
-    height: 96px;
+    height: 100px;
     text-align: center;
     line-height: 100px;
-    border: 2px solid;
-    border-color: black;
 }
