@@ -1,9 +1,15 @@
 let num = 16
 let color = 'black'
 let side = 500/num + "px"
+let toggle = 0 
 
 function changeColor(t){
-    t.style.background = color;   
+    
+    if(toggle == 1){
+        color = "#" + Math.floor(Math.random()*16777215).toString(16);
+    }
+
+    t.style.background = color
 }
 
 function changeSize(){
@@ -44,6 +50,20 @@ function changeSize(){
     console.log("Canvas size set to " + num + "x" + num)
 }
 
+function rainbow(){
+    if(toggle == 0){
+        toggle = 1
+        console.log("Random Colors: On")
+        return
+    }
+    if(toggle == 1){
+        toggle = 0
+        color = 'black'
+        console.log("Random Colors: Off")
+        return
+    }
+}
+
 function resetCanvas(){
 
     while(container.firstChild){
@@ -80,6 +100,9 @@ buttonList.appendChild(size)
 
 const random = document.createElement('button')
 random.textContent = ("Randomize Color")
+random.addEventListener('click', function(){
+    rainbow()
+})
 buttonList.appendChild(random)
 
 const darken = document.createElement('button')
