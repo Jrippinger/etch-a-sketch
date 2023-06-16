@@ -8,7 +8,7 @@ function changeColor(t){
 
 function changeSize(){
 
-    num = prompt("Please enter a grid size:")
+    num = prompt("Please enter a Canvas size:")
 
     if((num % 1) != 0){
         console.log("Invalid input: Not a number or integer")
@@ -41,6 +41,27 @@ function changeSize(){
     }
 
     body.append(container)
+    console.log("Canvas size set to " + num + "x" + num)
+}
+
+function resetCanvas(){
+
+    while(container.firstChild){
+        container.removeChild(container.firstChild)
+    }
+
+    for(i=0; i<(num * num); i++){
+        const i = document.createElement('div')
+        i.addEventListener('mouseover', function(){
+            changeColor(this)
+        })
+        i.style.width = side
+        i.style.height = side
+        container.appendChild(i)
+    }
+
+    body.append(container)
+    console.log("Canvas Reset")
 }
 
 const body = document.body
@@ -49,6 +70,7 @@ const buttonList = document.createElement('div')
 buttonList.classList.add('list')
 body.append(buttonList)
 
+//Button that prompts user to select a new size for the grid
 const size = document.createElement('button')
 size.textContent = ("Size: " + num + "x" + num)
 size.addEventListener('click', function(){
@@ -63,6 +85,14 @@ buttonList.appendChild(random)
 const darken = document.createElement('button')
 darken.textContent = ("Shader")
 buttonList.appendChild(darken)
+
+//Button that resets the canvas to blank
+const reset = document.createElement('button')
+reset.textContent = "Reset"
+reset.addEventListener('click', function(){
+    resetCanvas()
+})
+buttonList.appendChild(reset)
 
 const container = document.createElement('div')
 container.classList.add('container')
