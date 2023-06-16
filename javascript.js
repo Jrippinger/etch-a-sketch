@@ -1,17 +1,26 @@
 let num = 16
 let color = 'black'
 let side = 500/num + "px"
-let toggle = 0 
+let ranToggle = 0 
+let shaderToggle = 0
 
+//Function allows pixels to be colored 
 function changeColor(t){
     
-    if(toggle == 1){
+    if(ranToggle == 1){
         color = "#" + Math.floor(Math.random()*16777215).toString(16);
     }
+
+    /*if(shaderToggle == 1)
+    {
+        
+    }
+    */
 
     t.style.background = color
 }
 
+//Function for Size button
 function changeSize(){
 
     num = prompt("Please enter a Canvas size:")
@@ -50,20 +59,35 @@ function changeSize(){
     console.log("Canvas size set to " + num + "x" + num)
 }
 
+//Function for Randomize Color button
 function rainbow(){
-    if(toggle == 0){
-        toggle = 1
+    if(ranToggle == 0){
+        ranToggle = 1
         console.log("Random Colors: On")
         return
     }
-    if(toggle == 1){
-        toggle = 0
+    if(ranToggle == 1){
+        ranToggle = 0
         color = 'black'
         console.log("Random Colors: Off")
         return
     }
 }
 
+/*function shader(){
+    if(shaderToggle == 0){
+        shaderToggle = 1
+        console.log("Shader: On")
+        return
+    }
+    if(shaderToggle == 1){
+        shaderToggle = 0
+        console.log("Shader: Off")
+        return
+    }
+}*/
+
+//Function for Reset button
 function resetCanvas(){
 
     while(container.firstChild){
@@ -98,6 +122,7 @@ size.addEventListener('click', function(){
 })
 buttonList.appendChild(size)
 
+//Button that allows user to select if they want random colors to generate
 const random = document.createElement('button')
 random.textContent = ("Randomize Color")
 random.addEventListener('click', function(){
@@ -106,8 +131,11 @@ random.addEventListener('click', function(){
 buttonList.appendChild(random)
 
 const darken = document.createElement('button')
-darken.textContent = ("Shader")
-buttonList.appendChild(darken)
+/*darken.textContent = ("Shader")
+darken.addEventListener('click', function(){
+    shader()
+})
+buttonList.appendChild(darken)*/
 
 //Button that resets the canvas to blank
 const reset = document.createElement('button')
