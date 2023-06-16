@@ -3,8 +3,7 @@ let color = 'black'
 let side = 500/num + "px"
 
 function changeColor(t){
-    t.style.background = color;
-    
+    t.style.background = color;   
 }
 
 function changeSize(){
@@ -23,10 +22,9 @@ function changeSize(){
         num = 100
     }
 
-    body.removeChild(container)
-
-    const newContainer = document.createElement('div')
-    newContainer.classList.add('container')
+    while(container.firstChild){
+        container.removeChild(container.firstChild)
+    }
 
     size.textContent = ("Size: " + num + "x" + num)
     
@@ -39,10 +37,10 @@ function changeSize(){
         })
         i.style.width = side
         i.style.height = side
-        newContainer.appendChild(i)
+        container.appendChild(i)
     }
 
-    body.append(newContainer)
+    body.append(container)
 }
 
 const body = document.body
