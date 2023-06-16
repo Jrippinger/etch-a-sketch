@@ -1,25 +1,36 @@
-.container{
-    background-color: aquamarine;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    width: 400px;
-    height: 400px;
+body{
+    background-color: gray;
     display: flex;
-    flex-direction: column;
-    border: 2px solid black;
-}
-
-.subContainer{
-    display: flex;
-    justify-content: center;
     align-items: center;
+    margin-top: 200px;
 }
 
-.box{
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    line-height: 100px;
+.list{
+    background-color: darkgray;
+    width: 250px;
+    height: 450px;
+    display: flex;
+    border: 4px solid black;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 100px;
 }
+
+button{
+    width: 125px;
+    height: 50px;
+}
+
+.container{
+    background-color: white;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    border: 4px solid black;
+    flex-wrap: wrap;
+    margin-left: 300px;
+}
+
+
